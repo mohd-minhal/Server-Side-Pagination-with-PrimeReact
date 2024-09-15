@@ -1,0 +1,27 @@
+#root {
+  max-width: 80%;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-numbers button {
+  border: 1px solid #ddd;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.page-numbers button.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.page-numbers button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
