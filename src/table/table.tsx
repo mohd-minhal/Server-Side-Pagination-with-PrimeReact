@@ -146,6 +146,12 @@ const ArtworksComponent: React.FC = () => {
   const handleButtonClick = () => {
     setChecktRows(selectRows);
     setBlackList([]);
+    if (checkRows <= 12) {
+      const newSelectedArtworks = artworks.slice(0, checkRows);
+      setSelectedArtworks(() => [
+        ...newSelectedArtworks,
+      ]);
+    }
   };
 
   if (loading) return <div>Loading...</div>;
