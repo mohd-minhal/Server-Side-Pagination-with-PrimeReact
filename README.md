@@ -40,7 +40,9 @@ Access the app at http://localhost:3000.
 
 ## Usage
 Data Fetching: The app fetches paginated data from the server when the user navigates between pages.
+
 Row Selection: Users can select rows using checkboxes, either one by one or all at once, and selections persist even when switching between pages.
+
 Custom Selection Panel: The selected rows are displayed in a panel that persists across page changes.
 
 ## Example API Call
@@ -53,8 +55,11 @@ The API response includes artwork details some of which such as the title, artis
 
 ## Dependencies
 React: A JavaScript library for building user interfaces.
+
 TypeScript: Typed superset of JavaScript that adds static types.
+
 Vite: Next-generation front-end tooling.
+
 PrimeReact: A rich set of open-source UI components for React.
 
 ## License
