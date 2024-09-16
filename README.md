@@ -15,26 +15,27 @@ Custom Row Selection Panel: Displays selected rows in a custom panel outside the
 ## Key Considerations
 
 Memory Efficiency: No variable is holding all fetched rows across different pages, which prevents memory overload.
+
 API Call on Page Change: On every page change, the app calls the API to fetch the relevant page's data, even if the user revisits a previously viewed page.
+
 Persistent Row Selection: The app ensures that row selections/deselections persist across pages by maintaining selection state outside of the DataTable component itself.
 
 ## Installation
 Clone the repository:
+```
+git clone https://github.com/mohd-minhal/Server-Side-Pagination-with-PrimeReact.git
+cd Server-Side-Pagination-with-PrimeReact
+```
 
-bash
-Copy code
-git clone https://github.com/your-username/your-repo.git
-cd your-repo
 Install dependencies:
-
-bash
-Copy code
+```
 npm install
-Run the development server:
+```
 
-bash
-Copy code
+Run the development server:
+```
 npm run dev
+```
 Access the app at http://localhost:3000.
 
 ## Usage
@@ -45,10 +46,10 @@ Custom Selection Panel: The selected rows are displayed in a panel that persists
 ## Example API Call
 The app makes requests to the Art Institute of Chicago API to fetch artwork data:
 
-bash
-Copy code
+```
 https://api.artic.edu/api/v1/artworks?page=1
-The API response includes artwork details such as the title, artist, and creation date, which are displayed in the DataTable.
+```
+The API response includes artwork details some of which such as the title, artist, and creation date, which are displayed in the DataTable.
 
 ## Dependencies
 React: A JavaScript library for building user interfaces.
