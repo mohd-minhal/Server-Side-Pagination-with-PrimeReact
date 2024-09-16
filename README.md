@@ -1,50 +1,60 @@
-# React + TypeScript + Vite
+# React App with PrimeReact DataTable and Server-Side Pagination
+This project is a React application built with TypeScript, Vite, and PrimeReact's DataTable component. It features server-side pagination and custom row selection functionality that persists across page changes.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Features
+DataTable Integration: Displays data using PrimeReact's DataTable component.
 
-Currently, two official plugins are available:
+Server-Side Pagination: Fetches only the data for the current page from the server, reducing memory overhead. 
+Data for each page is loaded only when the user navigates to that page, ensuring no preloading or excessive memory use.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Row Selection with Persistence: Users can select individual rows or all rows at once.
+Row selections and deselections persist across different pages, even if the user navigates away and returns to a page later.
 
-## Expanding the ESLint configuration
+Custom Row Selection Panel: Displays selected rows in a custom panel outside the table, providing a clear overview of selected items.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Key Considerations
 
-- Configure the top-level `parserOptions` property like this:
+Memory Efficiency: No variable is holding all fetched rows across different pages, which prevents memory overload.
+API Call on Page Change: On every page change, the app calls the API to fetch the relevant page's data, even if the user revisits a previously viewed page.
+Persistent Row Selection: The app ensures that row selections/deselections persist across pages by maintaining selection state outside of the DataTable component itself.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Installation
+Clone the repository:
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+bash
+Copy code
+git clone https://github.com/your-username/your-repo.git
+cd your-repo
+Install dependencies:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+bash
+Copy code
+npm install
+Run the development server:
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+bash
+Copy code
+npm run dev
+Access the app at http://localhost:3000.
+
+## Usage
+Data Fetching: The app fetches paginated data from the server when the user navigates between pages.
+Row Selection: Users can select rows using checkboxes, either one by one or all at once, and selections persist even when switching between pages.
+Custom Selection Panel: The selected rows are displayed in a panel that persists across page changes.
+
+## Example API Call
+The app makes requests to the Art Institute of Chicago API to fetch artwork data:
+
+bash
+Copy code
+https://api.artic.edu/api/v1/artworks?page=1
+The API response includes artwork details such as the title, artist, and creation date, which are displayed in the DataTable.
+
+## Dependencies
+React: A JavaScript library for building user interfaces.
+TypeScript: Typed superset of JavaScript that adds static types.
+Vite: Next-generation front-end tooling.
+PrimeReact: A rich set of open-source UI components for React.
+
+## License
+This project is licensed under the MIT License.
